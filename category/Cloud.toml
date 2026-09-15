@@ -1,0 +1,26 @@
+[container.image]
+repository = "22009988"
+name = "vna-integration"
+tag = "v1.0.0"
+
+[cloud.deployment]
+min_memory = "100Mi"
+max_memory = "256Mi"
+min_cpu = "500m"
+max_cpu = "500m"
+
+[cloud.deployment.autoscaling]
+min_replicas = 2
+max_replicas = 5
+cpu = 60
+
+[[cloud.config.files]]
+file = "./Config.toml"
+
+[cloud.deployment.probes.liveness]
+port = 9091
+path = "/probes/healthz"
+
+[cloud.deployment.probes.readiness]
+port = 9091
+path = "/probes/readyz"

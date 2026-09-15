@@ -4,6 +4,18 @@ import ballerina/sql;
 
 listener http:Listener httpDefaultListener = http:getDefaultListener();
 
+// Listener riêng cho health check, chạy trên port 9091
+listener http:Listener probeEndpoint = new (9091);
+
+service /probes on probeEndpoint {
+    resource function get healthz() returns boolean {
+        return true;
+    }
+    resource function get readyz() returns boolean {
+        return true;
+    }
+}
+
 service /categories on httpDefaultListener {
     resource function get categories() returns User[]|error {
         do {

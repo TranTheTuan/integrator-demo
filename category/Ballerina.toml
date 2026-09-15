@@ -9,3 +9,4 @@ title = "Category"
 observabilityIncluded = true
 remoteManagement = true
 sticky = true
+cloud = "k8s"
