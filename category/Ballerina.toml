@@ -1,0 +1,11 @@
+[package]
+org = "vna"
+name = "category"
+version = "0.1.0"
+distribution = "2201.13.4"
+title = "Category"
+
+[build-options]
+observabilityIncluded = true
+remoteManagement = true
+sticky = true
